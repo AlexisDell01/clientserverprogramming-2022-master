@@ -46,11 +46,11 @@ async function update(id,language){
 
         WHERE id = ${id}
         `
-        
+
     );
 
     let message = "Error in updating programming language";
-    if(result.affectedRows){
+    if(result.affectedRows){ 
         message="A new language has been updated!";
     }
 
