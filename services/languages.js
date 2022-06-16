@@ -46,7 +46,6 @@ async function update(id,language){
 
         WHERE id = ${id}
         `
-
     );
 
     let message = "Error in updating programming language";
