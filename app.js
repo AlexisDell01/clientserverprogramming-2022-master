@@ -4,9 +4,15 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var cors = require('cors');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var postsRouter = require('./routes/posts');
+var commentsRouter = require ('./routes/comments');
 var languagesRouter = require('./routes/languages');
+
+
 
 
 
@@ -15,6 +21,8 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+app.use(cors());
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -26,7 +34,12 @@ app.use('/css', express.static(__dirname + "/node_modules/bootstrap/dist/css"));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/posts', postsRouter);
+app.use('/comments',commentsRouter);
 app.use('/languages',languagesRouter);
+
+
+
 
 
 
